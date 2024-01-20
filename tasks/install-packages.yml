@@ -1,7 +1,6 @@
 ---
 - name: Install packages using Aptitude
   ansible.builtin.apt:
-    name: "{{ item }}"
+    name: "{{ apt_installed_packages }}"
     update_cache: yes
   become: true
-  loop: "{{ apt_installed_packages }}" 
