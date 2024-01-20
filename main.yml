@@ -1,0 +1,8 @@
+---
+- hosts: localhost 
+
+  vars_files:
+    - default.config.yml
+
+  tasks:
+    - import_tasks: tasks/install-packages.yml

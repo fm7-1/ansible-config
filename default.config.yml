@@ -1,0 +1,7 @@
+---
+apt_installed_packages:
+  - curl
+  - git
+  - stow
+  - vim
+  - wget
