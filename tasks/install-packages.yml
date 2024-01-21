@@ -1,8 +1,10 @@
 ---
-- name: Add APT signing keys
+
+- name: Add APT repository keys
   become: true
-  ansible.builtin.apt_key:
+  ansible.builtin.get_url:
     url: "{{ item.key_url }}"
+    dest: "/etc/apt/trusted.gpg.d/{{ item.name }}.asc"
   loop: "{{ apt_repos }}"
 - name: Add aditional repository
   become: true
