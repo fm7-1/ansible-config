@@ -1,8 +1,12 @@
 ---
-- hosts: localhost 
-
+- hosts: localhost
+  
   vars_files:
     - default.config.yml
 
   tasks:
     - import_tasks: tasks/install-packages.yml
+      tags: ['install-packages', 'apt']
+    
+    - import_tasks: tasks/configure-gnome.yml
+      tags: ['gnome']

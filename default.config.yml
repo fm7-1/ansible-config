@@ -1,4 +1,6 @@
 ---
+# APT 
+
 apt_repos:
   - name: chrome
     key_url: "https://dl.google.com/linux/linux_signing_key.pub"
@@ -12,6 +14,29 @@ apt_installed_packages:
   - git
   - google-chrome-stable
   - htop
+  - python3-psutil
   - stow
   - vim
   - wget
+
+# Gnome configuration
+
+gnome_desktop_interface:
+  - name: color-scheme
+    value: "'prefer-dark'"
+  - name: gtk-theme
+    value: "'Yaru-sage-dark'"
+  - name: icon-theme
+    value: "'Yaru-sage'"
+
+terminal_default_profile_id: f2201379-9c1f-4a5b-8ec6-0f8ba83ccfef 
+
+terminal_configuration:
+  - name: background-color
+    value: "'rgb(0,0,0)'"
+  - name: foreground-color
+    value: "'rgb(170,170,170)'"
+  - name: use-theme-colors
+    value: "false"
+  - name: visible-name
+    value: "'default'"

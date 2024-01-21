@@ -1,0 +1,20 @@
+---
+- name: Set dark mode
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/{{ item.name }}"
+    value: "{{ item.value }}"
+  loop: "{{ gnome_desktop_interface }}"
+
+- name: Set default terminal profile
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/default"
+    value: "'{{ terminal_default_profile_id }}'"
+- name: Add default profile to default list
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/list"
+    value: "['{{ terminal_default_profile_id }}']"
+- name: Configure terminal profile 
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:{{ terminal_default_profile_id }}/{{ item.name }}"
+    value: "{{ item.value }}"
+  loop: "{{ terminal_configuration }}"
