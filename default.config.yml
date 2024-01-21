@@ -11,6 +11,7 @@ apt_installed_packages:
   - curl
   - git
   - google-chrome-stable
+  - htop
   - stow
   - vim
   - wget
