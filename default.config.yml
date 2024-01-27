@@ -47,3 +47,5 @@ terminal_configuration:
     value: "false"
   - name: visible-name
     value: "'default'"
+
+path_to_backgroud: files/wallpaper.jpg
