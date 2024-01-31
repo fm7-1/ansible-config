@@ -23,6 +23,7 @@ apt_installed_packages:
   - python3-psutil
   - ripgrep
   - stow
+  - tmux
   - vim
   - wget
 
