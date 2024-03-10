@@ -3,10 +3,23 @@
   
   vars_files:
     - default.config.yml
-
+  
+  # pre_tasks:
+  #   - name: Include playbook configuration.
+  #     include_vars: "{{ item }}"
+  #     with_fileglob:
+  #       - "{{ playbook_dir }}/config.yml"
+  #     tags: ['always']
+  
   tasks:
     - import_tasks: tasks/install-packages.yml
       tags: ['install-packages', 'apt']
     
-    - import_tasks: tasks/configure-gnome.yml
-      tags: ['gnome']
+        #- import_tasks: tasks/configure-gnome.yml
+        #tags: ['gnome']
+    
+    - import_tasks: tasks/dotfiles.yml
+      tags: ['dotfiles']
+
+    - import_tasks: tasks/terminal.yml
+      tags: ['terminal']
