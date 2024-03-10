@@ -1,0 +1,17 @@
+---
+
+- name: Create .fonts directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.fonts"
+    state: directory
+    mode: '0755'
+
+- name: Download and unarchive fonts
+  ansible.builtin.unarchive:
+    src: "{{ font_url }}"
+    dest: /tmp/
+    remote_src: yes
+
+      #- name: Check if starship is installed
+      #  command: "which starship"
+      #  register: starship_installed
