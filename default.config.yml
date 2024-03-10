@@ -20,8 +20,10 @@ apt_installed_packages:
   - git
   - google-chrome-stable
   - htop
+  - pdftk
   - python3-psutil
   - ripgrep
+  - solaar
   - stow
   - tmux
   - vim
