@@ -6,12 +6,36 @@
     state: directory
     mode: '0755'
 
+- name: Create temp directory for fonts
+  ansible.builtin.file:
+    path: "/tmp/fonts"
+    state: directory
+
 - name: Download and unarchive fonts
   ansible.builtin.unarchive:
-    src: "{{ font_url }}"
-    dest: /tmp/
+    src: "{{ item }}"
+    dest: /tmp/fonts/
     remote_src: yes
+  with_items: "{{ fonts_urls }}"
 
-      #- name: Check if starship is installed
-      #  command: "which starship"
-      #  register: starship_installed
+- name: Copy downloaded fonts to the .fonts directory
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.fonts"
+  with_fileglob: "/tmp/fonts/*.otf"
+
+- name: Install starship
+  block:
+    - name: Check if starship is installed
+      ansible.builtin.command:
+        cmd: which starship
+  rescue: 
+    - name: Download starship installation script
+      ansible.builtin.get_url:
+        url: "https://starship.rs/install.sh"
+        dest: /tmp/starship_install.sh   
+    - name: Install starship
+      become: yes
+      ansible.builtin.shell:
+        cmd: sh /tmp/starship_install.sh -y 
+
