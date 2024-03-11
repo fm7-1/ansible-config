@@ -23,3 +23,6 @@
 
     - import_tasks: tasks/terminal.yml
       tags: ['terminal']
+
+    - import_tasks: tasks/starship.yml
+      tags: ['starship']

@@ -52,3 +52,9 @@ terminal_configuration:
     value: "'default'"
 
 path_to_backgroud: files/wallpaper.jpg
+
+# Terminal configuration
+
+fonts_urls:
+  - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/CommitMono.zip"
+  - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraMono.zip"

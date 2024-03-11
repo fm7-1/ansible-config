@@ -6,17 +6,16 @@
     state: directory
     mode: '0755'
 
-- name: Create temp directory for fonts
+- name: Create temp directory for font
   ansible.builtin.file:
     path: "/tmp/fonts"
     state: directory
 
-- name: Download and unarchive fonts
+- name: Download and unarchive FiraCode fonts
   ansible.builtin.unarchive:
-    src: "{{ item }}"
+    src: "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip"
     dest: /tmp/fonts/
     remote_src: yes
-  with_items: "{{ fonts_urls }}"
 
 - name: Copy downloaded fonts to the .fonts directory
   ansible.builtin.copy:
