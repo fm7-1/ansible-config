@@ -39,6 +39,8 @@
   with_fileglob: "/tmp/fonts/*.ttf"
   when: not font.stat.exists
 
+# Install Starship 
+
 - name: Install starship
   block:
     - name: Check if starship is installed
