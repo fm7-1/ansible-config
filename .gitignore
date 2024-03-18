@@ -1,3 +1,13 @@
-# Python Virtual environment
+# Ignored files
 
+# Ansible config file
+config.yml 
+
+# Python Virtual environment
 /.venv
+
+# Vim swap files
+*.swp
+*.swo
+
+
