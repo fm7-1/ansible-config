@@ -1,0 +1,17 @@
+--- 
+
+- name: Install starship
+  block:
+    - name: Check if starship is installed
+      ansible.builtin.command:
+        cmd: which starship
+  rescue: 
+    - name: Download starship installation script
+      ansible.builtin.get_url:
+        url: "https://starship.rs/install.sh"
+        dest: /tmp/starship_install.sh   
+    - name: Install starship
+      become: yes
+      ansible.builtin.shell:
+        cmd: sh /tmp/starship_install.sh -y 
+
