@@ -1,0 +1,81 @@
+---
+
+# Terminal defaults
+
+- name: Set default terminal profile
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/default"
+    value: "'{{ terminal_default_profile_id }}'"
+
+- name: Add default profile to default list
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/list"
+    value: "['{{ terminal_default_profile_id }}']"
+
+- name: Configure terminal profile 
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:{{ terminal_default_profile_id }}/{{ item.name }}"
+    value: "{{ item.value }}"
+  loop: "{{ terminal_configuration }}"
+
+# Set up nerd font
+
+- name: Check if FiraCode fonts are installed
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.fonts/FiraCodeNerdFont-Regular.ttf"
+  register: font
+
+- name: Print message
+  ansible.builtin.debug:
+    msg: "FiraCode font file found. Skipping fonts installation"
+  when: font.stat.exists
+
+- name: Create .fonts directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.fonts"
+    state: directory
+    mode: '0755'
+  when: not font.stat.exists
+
+- name: Create temp directory for font
+  ansible.builtin.file:
+    path: "/tmp/fonts"
+    state: directory
+  when: not font.stat.exists
+
+- name: Download and unarchive FiraCode fonts
+  ansible.builtin.unarchive:
+    src: "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip"
+    dest: /tmp/fonts/
+    remote_src: yes
+  when: not font.stat.exists
+
+- name: Copy downloaded fonts to the .fonts directory
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.fonts"
+  with_fileglob: "/tmp/fonts/*.ttf"
+  when: not font.stat.exists
+
+- name: Set terminal font 
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:{{ terminal_default_profile_id }}/font"
+    value: "'FiraCode Nerd Font Mono 12'"
+
+# Install Starship 
+
+- name: Install starship
+  block:
+    - name: Check if starship is installed
+      ansible.builtin.command:
+        cmd: which starship
+  rescue: 
+    - name: Download starship installation script
+      ansible.builtin.get_url:
+        url: "https://starship.rs/install.sh"
+        dest: /tmp/starship_install.sh   
+    - name: Install starship
+      become: yes
+      ansible.builtin.shell:
+        cmd: sh /tmp/starship_install.sh -y 
+
