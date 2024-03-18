@@ -1,6 +1,6 @@
 ---
 
-# Terminal configuration
+# Terminal defaults
 
 - name: Set default terminal profile
   community.general.dconf:
@@ -56,6 +56,11 @@
     dest: "{{ ansible_env.HOME }}/.fonts"
   with_fileglob: "/tmp/fonts/*.ttf"
   when: not font.stat.exists
+
+- name: Set terminal font 
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:{{ terminal_default_profile_id }}/font"
+    value: "'FiraCode Nerd Font Mono 12'"
 
 # Install Starship 
 
