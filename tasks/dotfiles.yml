@@ -6,10 +6,10 @@
     state: directory
     mode: "0700"
 
-#- name: Checkout dotfiles repository
-#  ansible.builtin.git:
-#    repo: "git@github.com:{{ dotfiles_repo }}"
-#    dest: "{{ ansible_env.HOME }}/Code/dotfiles"
+- name: Checkout dotfiles repository
+  ansible.builtin.git:
+    repo: "git@github.com:{{ dotfiles_repo }}"
+    dest: "{{ ansible_env.HOME }}/Code/dotfiles"
 
 - name: Find stow packages
   ansible.builtin.find:
@@ -27,4 +27,4 @@
     cmd: "stow -S . --dir={{ ansible_env.HOME }}/Code/dotfiles/{{ item | basename }} --target={{ ansible_env.HOME}} --verbose=2"
   with_items: "{{ stow_pkgs }}"
   register: stow_result
-  changed_when: "'LINK:' in stow_result.stdout"
+  changed_when: "'LINK:' in stow_result.stderr"
