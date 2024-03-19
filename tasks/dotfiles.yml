@@ -24,7 +24,8 @@
 
 - name: Run stow
   ansible.builtin.command:
-    cmd: "stow -S . --dir={{ ansible_env.HOME }}/Code/dotfiles/{{ item | basename }} --target={{ ansible_env.HOME}} --verbose=2"
+    cmd: "stow -S . --dir={{ ansible_env.HOME }}/Code/dotfiles/{{ item | basename }} --target={{ ansible_env.HOME }} --verbose=2"
   with_items: "{{ stow_pkgs }}"
   register: stow_result
   changed_when: "'LINK:' in stow_result.stderr"
+
