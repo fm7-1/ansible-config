@@ -17,14 +17,19 @@
   become: true
   ansible.builtin.apt:
     cache_valid_time: 3600
+  tags:
+  - apt-install
 
 - name: Install packages using Aptitude
   become: true
   ansible.builtin.apt:
     name: "{{ apt_installed_packages }}"
+  tags:
+  - apt-install
 
 - name: Download and install .deb packages
   become: true
   ansible.builtin.apt:
     deb: "{{ item }}"
   with_items: "{{ apt_deb_packages_urls }}"
+
