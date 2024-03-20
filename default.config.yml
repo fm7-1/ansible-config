@@ -34,7 +34,9 @@ apt_installed_packages:
   - virtualbox-7.0
   - vlc
   - wget
-
+  - dislocker
+  - ntfs-3g
+  - exfat-fuse
 # Gnome configuration
 
 gnome_desktop_interface:
