@@ -26,5 +26,5 @@
 - name: Download and install .deb packages
   become: true
   ansible.builtin.apt:
-    deb: "{{ items }}"
+    deb: "{{ item }}"
   with_items: "{{ apt_deb_packages_urls }}"
