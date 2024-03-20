@@ -27,6 +27,7 @@ apt_installed_packages:
   - google-chrome-stable
   - htop
   - ntfs-3g
+  - p7zip-full
   - pdftk
   - python3-psutil
   - ripgrep
