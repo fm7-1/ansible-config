@@ -16,6 +16,9 @@ apt_repos:
   - name: vbox
     key_url: "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
     repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian jammy contrib"
+  - name: spotify
+    key_url: "https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg"
+    repo: "deb http://repository.spotify.com stable non-free"
 
 apt_installed_packages:
   - code 
@@ -32,6 +35,7 @@ apt_installed_packages:
   - python3-psutil
   - ripgrep
   - solaar
+  - spotify-client
   - stow
   - tmux
   - vim
