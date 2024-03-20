@@ -20,6 +20,7 @@ apt_repos:
 apt_installed_packages:
   - code 
   - curl
+  - dkms
   - git
   - google-chrome-stable
   - htop
