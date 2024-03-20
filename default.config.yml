@@ -32,6 +32,7 @@ apt_installed_packages:
   - tmux
   - vim
   - virtualbox-7.0
+  - vlc
   - wget
 
 # Gnome configuration
