@@ -38,6 +38,13 @@ apt_installed_packages:
   - virtualbox-7.0
   - vlc
   - wget
+
+apt_deb_packages_urls:
+
+  - "https://mega.nz/linux/repo/xUbuntu_22.04/amd64/megasync-xUbuntu_22.04_amd64.deb" # MEGA
+  - "https://launchpad.net/veracrypt/trunk/1.26.7/+download/veracrypt-1.26.7-Ubuntu-22.04-amd64.deb" # Veracrypt
+  - "https://zoom.us/client/latest/zoom_amd64.deb" # Zoom
+
 # Gnome configuration
 
 gnome_desktop_interface:
