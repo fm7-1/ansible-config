@@ -6,16 +6,25 @@
     url: "{{ item.key_url }}"
     dest: "/etc/apt/trusted.gpg.d/{{ item.name }}.asc"
   loop: "{{ apt_repos }}"
+
 - name: Add aditional repository
   become: true
   ansible.builtin.apt_repository:
     repo: "{{ item.repo }}"
   loop: "{{ apt_repos }}"
+
 - name: Update cache if the last update is more than one hour ago
   become: true
   ansible.builtin.apt:
     cache_valid_time: 3600
+
 - name: Install packages using Aptitude
   become: true
   ansible.builtin.apt:
     name: "{{ apt_installed_packages }}"
+
+- name: Download and install .deb packages
+  become: true
+  ansible.builtin.apt:
+    deb: "{{ items }}"
+  with_items: "{{ apt_deb_packages_urls }}"
