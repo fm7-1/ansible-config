@@ -16,23 +16,38 @@ apt_repos:
   - name: vbox
     key_url: "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
     repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian jammy contrib"
+  - name: spotify
+    key_url: "https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg"
+    repo: "deb http://repository.spotify.com stable non-free"
 
 apt_installed_packages:
   - code 
   - curl
+  - dislocker
   - dkms
+  - exfat-fuse
   - git
   - google-chrome-stable
   - htop
+  - ntfs-3g
+  - p7zip-full
   - pdftk
   - python3-psutil
   - ripgrep
   - solaar
+  - spotify-client
   - stow
   - tmux
   - vim
   - virtualbox-7.0
+  - vlc
   - wget
+
+apt_deb_packages_urls:
+
+  - "https://mega.nz/linux/repo/xUbuntu_22.04/amd64/megasync-xUbuntu_22.04_amd64.deb" # MEGA
+  - "https://launchpad.net/veracrypt/trunk/1.26.7/+download/veracrypt-1.26.7-Ubuntu-22.04-amd64.deb" # Veracrypt
+  - "https://zoom.us/client/latest/zoom_amd64.deb" # Zoom
 
 # Gnome configuration
 
