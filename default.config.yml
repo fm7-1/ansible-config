@@ -20,10 +20,13 @@ apt_repos:
 apt_installed_packages:
   - code 
   - curl
+  - dislocker
   - dkms
+  - exfat-fuse
   - git
   - google-chrome-stable
   - htop
+  - ntfs-3g
   - pdftk
   - python3-psutil
   - ripgrep
@@ -34,9 +37,6 @@ apt_installed_packages:
   - virtualbox-7.0
   - vlc
   - wget
-  - dislocker
-  - ntfs-3g
-  - exfat-fuse
 # Gnome configuration
 
 gnome_desktop_interface:
