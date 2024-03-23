@@ -21,5 +21,5 @@ And `ansible` will be installed and ready to work.
 1. Copy the `config.yml` file to the root of the project.
 2. Run the playbook with the following command:
 ```
-ansible-playbook main.yml --ask-become-password
+ansible-playbook main.yml --ask-become-pass
 ```
