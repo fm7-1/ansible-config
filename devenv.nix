@@ -1,11 +1,15 @@
 { pkgs, ... }:
 
 {
+  packages = [ 
 
-  packages = [ pkgs.git ];
+   pkgs.git
+   pkgs.glibcLocales
+
+ ];
 
   enterShell = ''
-    hello
+    export LC_ALL="C.UTF-8"
     git --version
   '';
 
