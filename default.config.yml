@@ -32,7 +32,6 @@ apt_installed_packages:
   - ntfs-3g
   - p7zip-full
   - pdftk
-  - python3-psutil
   - ripgrep
   - solaar
   - spotify-client
