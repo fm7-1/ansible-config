@@ -25,9 +25,14 @@ apt_repos:
 
 apt_installed_packages:
   - code 
+  - containerd.io
   - curl
   - dislocker
   - dkms
+  - docker-buildx-plugin
+  - docker-ce
+  - docker-ce-cli 
+  - docker-compose-plugin
   - exfat-fuse
   - git
   - google-chrome-stable
