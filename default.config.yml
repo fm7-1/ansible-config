@@ -19,12 +19,20 @@ apt_repos:
   - name: spotify
     key_url: "https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg"
     repo: "deb http://repository.spotify.com stable non-free"
+  - name: docker
+    key_url: "https://download.docker.com/linux/ubuntu/gpg"
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable"
 
 apt_installed_packages:
   - code 
+  - containerd.io
   - curl
   - dislocker
   - dkms
+  - docker-buildx-plugin
+  - docker-ce
+  - docker-ce-cli 
+  - docker-compose-plugin
   - exfat-fuse
   - git
   - google-chrome-stable
