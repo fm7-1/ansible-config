@@ -21,7 +21,7 @@ apt_repos:
     repo: "deb http://repository.spotify.com stable non-free"
   - name: docker
     key_url: "https://download.docker.com/linux/ubuntu/gpg"
-    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu"
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable"
 
 apt_installed_packages:
   - code 
