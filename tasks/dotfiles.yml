@@ -11,6 +11,11 @@
     repo: "git@github.com:{{ dotfiles_repo }}"
     dest: "{{ ansible_env.HOME }}/Code/dotfiles"
 
+- name: Install Tmux plugin manager
+  ansible.builtin.git:
+    repo: "https://github.com/tmux-plugins/tpm"
+    dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
+
 - name: Find stow packages
   ansible.builtin.find:
     paths: "{{ ansible_env.HOME }}/Code/dotfiles"
