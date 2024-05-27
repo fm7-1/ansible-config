@@ -1,0 +1,10 @@
+---
+
+- name: Clone fzf repository
+  ansible.builtin.file:
+    repo: "git@github.com:junegunn/fzf.git"
+    dest: "{{ ansible_env.HOME }}/.fzf"
+    depth: "1"
+    version: "{{ fzf_version }}"
+
+    
