@@ -56,6 +56,10 @@ apt_deb_packages_urls:
   - "https://launchpad.net/veracrypt/trunk/1.26.7/+download/veracrypt-1.26.7-Ubuntu-22.04-amd64.deb" # Veracrypt
   - "https://zoom.us/client/latest/zoom_amd64.deb" # Zoom
 
+# Packages version
+
+fzf_version: "HEAD"
+
 # Gnome configuration
 
 gnome_desktop_interface:
