@@ -14,7 +14,10 @@
   tasks:
     - import_tasks: tasks/install-packages.yml
       tags: ['install-packages', 'apt']
-    
+
+    - import_tasks: tasks/install-fzf.yml
+      tags: ['fzf']
+ 
     - import_tasks: tasks/configure-gnome.yml
       tags: ['gnome']
     
