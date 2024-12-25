@@ -1,7 +1,7 @@
 # Ansible
 
-## NOTE 
-> [!NOTE]
+## Deprecation notice 
+> [!WARNING]
 > This repository is now archived and was replaced in favor of Nix [home-manager](https://github.com/fm7-1/home-manager)
 
 This repository contains the playbook and all the necessary files to setup my computer. Based on Jeff Geerling's [mac-dev-playbook](https://github.com/geerlingguy/mac-dev-playbook)
